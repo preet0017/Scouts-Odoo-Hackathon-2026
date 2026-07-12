@@ -4,6 +4,7 @@ import { Header } from '@/components/layout/header'
 import { KpiCard } from '@/components/ui/kpi-card'
 import { StatusBadge } from '@/components/ui/status-badge'
 import { VehicleStatusChart } from '@/components/dashboard/vehicle-status-chart'
+import { DashboardFilters } from '@/components/dashboard/dashboard-filters'
 import {
   Truck, CheckCircle, Wrench, MapPin,
   Clock, Users, Activity
@@ -14,6 +15,7 @@ import {
   TableHead, TableHeader, TableRow
 } from '@/components/ui/table'
 import { formatDistanceToNow } from 'date-fns'
+
 
 async function getDashboardData() {
   const [
@@ -74,6 +76,9 @@ export default async function DashboardPage() {
     <div className="flex flex-col h-full overflow-hidden">
       <Header title="Dashboard" />
       <main className="flex-1 overflow-y-auto p-6 space-y-6">
+
+        {/* Filters Row */}
+        <DashboardFilters />
 
         {/* KPI Cards */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">

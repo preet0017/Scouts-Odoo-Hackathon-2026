@@ -9,9 +9,9 @@ const permissions: Record<Role, Partial<Record<Resource, Action>>> = {
     maintenance: 'edit', fuel: 'edit', analytics: 'view',
     settings: 'edit', admin: 'edit'
   },
-  FLEET_MANAGER:    { fleet: 'edit', drivers: 'edit' },
-  DISPATCHER:       { trips: 'edit', maintenance: 'edit' },
-  SAFETY_OFFICER:   { fuel: 'edit', analytics: 'view' },
+  FLEET_MANAGER:    { fleet: 'edit', maintenance: 'edit', analytics: 'view', settings: 'edit' },
+  DISPATCHER:       { fleet: 'view', trips: 'edit' },
+  SAFETY_OFFICER:   { drivers: 'edit', trips: 'view' },
   FINANCIAL_ANALYST:{ fleet: 'view', fuel: 'edit', analytics: 'view' },
 }
 
@@ -25,8 +25,8 @@ export function can(role: Role, resource: Resource, action: Action = 'view'): bo
 // Nav items visible per role — matches sidebar
 export const navByRole: Record<Role, string[]> = {
   ADMIN:            ['dashboard', 'fleet', 'drivers', 'trips', 'maintenance', 'fuel', 'analytics', 'settings', 'admin'],
-  FLEET_MANAGER:    ['dashboard', 'fleet', 'drivers'],
-  DISPATCHER:       ['dashboard', 'trips', 'maintenance'],
-  SAFETY_OFFICER:   ['dashboard', 'fuel', 'analytics'],
+  FLEET_MANAGER:    ['dashboard', 'fleet', 'maintenance', 'analytics', 'settings'],
+  DISPATCHER:       ['dashboard', 'fleet', 'trips'],
+  SAFETY_OFFICER:   ['dashboard', 'drivers', 'trips'],
   FINANCIAL_ANALYST:['dashboard', 'fleet', 'fuel', 'analytics'],
 }

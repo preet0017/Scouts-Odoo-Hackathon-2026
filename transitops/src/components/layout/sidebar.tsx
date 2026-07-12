@@ -24,9 +24,9 @@ const allNavItems = [
 
 const roleNav: Record<string, string[]> = {
   ADMIN:             ['dashboard', 'fleet', 'drivers', 'trips', 'maintenance', 'fuel', 'analytics', 'settings', 'admin'],
-  FLEET_MANAGER:     ['dashboard', 'fleet', 'drivers'],
-  DISPATCHER:        ['dashboard', 'trips', 'maintenance'],
-  SAFETY_OFFICER:    ['dashboard', 'fuel', 'analytics'],
+  FLEET_MANAGER:     ['dashboard', 'fleet', 'maintenance', 'analytics', 'settings'],
+  DISPATCHER:        ['dashboard', 'fleet', 'trips'],
+  SAFETY_OFFICER:    ['dashboard', 'drivers', 'trips'],
   FINANCIAL_ANALYST: ['dashboard', 'fleet', 'fuel', 'analytics'],
 }
 

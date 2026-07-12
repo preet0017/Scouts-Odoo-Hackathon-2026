@@ -43,7 +43,7 @@ export function VehicleStatusChart({ data }: { data: ChartData[] }) {
           }}
           cursor={{ fill: cursorFill }}
         />
-        <Bar dataKey="value" radius={[0, 4, 4, 0]}>
+        <Bar dataKey="value" radius={[0, 4, 4, 0]} minPointSize={2}>
           {data.map((entry, index) => (
             <Cell key={index} fill={entry.fill} />
           ))}

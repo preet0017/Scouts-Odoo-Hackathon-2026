@@ -22,7 +22,7 @@ export async function createMaintenanceRecord(formData: {
 }) {
   const parsed = maintenanceSchema.safeParse(formData)
   if (!parsed.success) {
-    return { error: parsed.error.errors[0].message }
+    return { error: parsed.error.issues[0].message }
   }
 
   try {

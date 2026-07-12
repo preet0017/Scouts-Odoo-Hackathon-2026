@@ -44,7 +44,7 @@ export function MonthlyRevenueChart({ data }: { data: MonthlyRevenue[] }) {
         <Tooltip
           contentStyle={TOOLTIP_STYLE}
           cursor={CURSOR_STYLE}
-          formatter={(v: number) => [`₹${v.toLocaleString()}`, 'Revenue']}
+          formatter={(v: unknown) => [`₹${Number(v).toLocaleString()}`, 'Revenue']}
         />
         <Bar dataKey="revenue" fill="#3b82f6" radius={[4, 4, 0, 0]} />
       </BarChart>
@@ -75,7 +75,7 @@ export function CostlyVehiclesChart({ data }: { data: CostlyVehicle[] }) {
         <Tooltip
           contentStyle={TOOLTIP_STYLE}
           cursor={CURSOR_STYLE}
-          formatter={(v: number) => [`₹${v.toLocaleString()}`, 'Total Cost']}
+          formatter={(v: unknown) => [`₹${Number(v).toLocaleString()}`, 'Total Cost']}
         />
         <Bar dataKey="cost" radius={[0, 4, 4, 0]}>
           {data.map((_, i) => (

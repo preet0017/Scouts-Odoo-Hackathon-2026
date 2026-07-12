@@ -135,10 +135,8 @@ export function FuelClient({ vehicles, trips, fuelLogs, expenses, totalFuel, tot
             <CardTitle className="text-base">Fuel Logs</CardTitle>
           </div>
           <Dialog open={fuelOpen} onOpenChange={setFuelOpen}>
-            <DialogTrigger asChild>
-              <Button size="sm" className="gap-1.5">
-                <Plus className="h-4 w-4" /> Log Fuel
-              </Button>
+            <DialogTrigger render={<Button size="sm" className="gap-1.5" />}>
+              <Plus className="h-4 w-4" /> Log Fuel
             </DialogTrigger>
             <DialogContent>
               <DialogHeader>
@@ -147,7 +145,7 @@ export function FuelClient({ vehicles, trips, fuelLogs, expenses, totalFuel, tot
               <div className="space-y-4 pt-2">
                 <div className="space-y-1.5">
                   <Label>Vehicle <span className="text-destructive">*</span></Label>
-                  <Select value={fVehicle} onValueChange={setFVehicle}>
+                  <Select value={fVehicle} onValueChange={(v) => setFVehicle(v ?? '')}>
                     <SelectTrigger><SelectValue placeholder="Select vehicle" /></SelectTrigger>
                     <SelectContent>
                       {vehicles.map(v => (
@@ -160,7 +158,7 @@ export function FuelClient({ vehicles, trips, fuelLogs, expenses, totalFuel, tot
                 </div>
                 <div className="space-y-1.5">
                   <Label>Trip (optional)</Label>
-                  <Select value={fTrip} onValueChange={setFTrip}>
+                  <Select value={fTrip} onValueChange={(v) => setFTrip(v ?? '')}>
                     <SelectTrigger><SelectValue placeholder="Link to trip" /></SelectTrigger>
                     <SelectContent>
                       <SelectItem value="none">— None —</SelectItem>
@@ -234,10 +232,8 @@ export function FuelClient({ vehicles, trips, fuelLogs, expenses, totalFuel, tot
             <CardTitle className="text-base">Other Expenses</CardTitle>
           </div>
           <Dialog open={expenseOpen} onOpenChange={setExpenseOpen}>
-            <DialogTrigger asChild>
-              <Button size="sm" variant="outline" className="gap-1.5">
-                <Plus className="h-4 w-4" /> Add Expense
-              </Button>
+            <DialogTrigger render={<Button size="sm" variant="outline" className="gap-1.5" />}>
+              <Plus className="h-4 w-4" /> Add Expense
             </DialogTrigger>
             <DialogContent>
               <DialogHeader>
@@ -246,7 +242,7 @@ export function FuelClient({ vehicles, trips, fuelLogs, expenses, totalFuel, tot
               <div className="space-y-4 pt-2">
                 <div className="space-y-1.5">
                   <Label>Vehicle <span className="text-destructive">*</span></Label>
-                  <Select value={eVehicle} onValueChange={setEVehicle}>
+                  <Select value={eVehicle} onValueChange={(v) => setEVehicle(v ?? '')}>
                     <SelectTrigger><SelectValue placeholder="Select vehicle" /></SelectTrigger>
                     <SelectContent>
                       {vehicles.map(v => (
@@ -259,7 +255,7 @@ export function FuelClient({ vehicles, trips, fuelLogs, expenses, totalFuel, tot
                 </div>
                 <div className="space-y-1.5">
                   <Label>Trip (optional)</Label>
-                  <Select value={eTrip} onValueChange={setETrip}>
+                  <Select value={eTrip} onValueChange={(v) => setETrip(v ?? '')}>
                     <SelectTrigger><SelectValue placeholder="Link to trip" /></SelectTrigger>
                     <SelectContent>
                       <SelectItem value="none">— None —</SelectItem>

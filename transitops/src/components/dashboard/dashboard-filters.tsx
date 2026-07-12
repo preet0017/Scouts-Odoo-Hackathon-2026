@@ -23,7 +23,7 @@ export function DashboardFilters() {
         <span className="font-medium">Filters</span>
       </div>
 
-      <Select value={vehicleType} onValueChange={setVehicleType}>
+      <Select value={vehicleType} onValueChange={(v) => setVehicleType(v ?? 'ALL')}>
         <SelectTrigger className="w-40 h-8 text-sm">
           <SelectValue placeholder="Vehicle Type" />
         </SelectTrigger>
@@ -35,7 +35,7 @@ export function DashboardFilters() {
         </SelectContent>
       </Select>
 
-      <Select value={status} onValueChange={setStatus}>
+      <Select value={status} onValueChange={(v) => setStatus(v ?? 'ALL')}>
         <SelectTrigger className="w-40 h-8 text-sm">
           <SelectValue placeholder="Status" />
         </SelectTrigger>
@@ -48,7 +48,7 @@ export function DashboardFilters() {
         </SelectContent>
       </Select>
 
-      <Select value={region} onValueChange={setRegion}>
+      <Select value={region} onValueChange={(v) => setRegion(v ?? 'ALL')}>
         <SelectTrigger className="w-40 h-8 text-sm">
           <SelectValue placeholder="Region" />
         </SelectTrigger>

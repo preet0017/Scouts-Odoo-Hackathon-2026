@@ -58,9 +58,9 @@ async function getDashboardData() {
     },
     chartData: [
       { name: 'Available', value: availableVehicles, fill: '#22c55e' },
-      { name: 'On Trip',   value: activeVehicles,    fill: '#3b82f6' },
-      { name: 'In Shop',   value: inShopVehicles,    fill: '#f97316' },
-      { name: 'Retired',   value: retiredVehicles,   fill: '#ef4444' },
+      { name: 'On Trip', value: activeVehicles, fill: '#3b82f6' },
+      { name: 'In Shop', value: inShopVehicles, fill: '#f97316' },
+      { name: 'Retired', value: retiredVehicles, fill: '#ef4444' },
     ],
     recentTrips,
   }
@@ -77,12 +77,12 @@ export default async function DashboardPage() {
 
         {/* KPI Cards */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          <KpiCard title="Active Vehicles"    value={kpis.activeVehicles}    icon={Truck}       color="blue" />
+          <KpiCard title="Active Vehicles" value={kpis.activeVehicles} icon={Truck} color="blue" />
           <KpiCard title="Available Vehicles" value={kpis.availableVehicles} icon={CheckCircle} color="green" />
-          <KpiCard title="In Maintenance"     value={kpis.inShopVehicles}    icon={Wrench}      color="orange" />
-          <KpiCard title="Active Trips"       value={kpis.activeTrips}       icon={MapPin}      color="blue" />
-          <KpiCard title="Pending Trips"      value={kpis.pendingTrips}      icon={Clock}       color="default" />
-          <KpiCard title="Drivers On Duty"    value={kpis.driversOnDuty}     icon={Users}       color="purple" />
+          <KpiCard title="In Maintenance" value={kpis.inShopVehicles} icon={Wrench} color="orange" />
+          <KpiCard title="Active Trips" value={kpis.activeTrips} icon={MapPin} color="blue" />
+          <KpiCard title="Pending Trips" value={kpis.pendingTrips} icon={Clock} color="default" />
+          <KpiCard title="Drivers On Duty" value={kpis.driversOnDuty} icon={Users} color="purple" />
           <KpiCard
             title="Fleet Utilization"
             value={`${kpis.fleetUtilization}%`}

@@ -11,34 +11,34 @@ import { signOut } from 'next-auth/react'
 import { cn } from '@/lib/utils'
 
 const allNavItems = [
-  { href: '/dashboard',   label: 'Dashboard',      icon: LayoutDashboard, key: 'dashboard' },
-  { href: '/fleet',       label: 'Fleet',           icon: Truck,           key: 'fleet' },
-  { href: '/drivers',     label: 'Drivers',         icon: Users,           key: 'drivers' },
-  { href: '/trips',       label: 'Trips',           icon: MapPin,          key: 'trips' },
-  { href: '/maintenance', label: 'Maintenance',     icon: Wrench,          key: 'maintenance' },
-  { href: '/fuel',        label: 'Fuel & Expenses', icon: Fuel,            key: 'fuel' },
-  { href: '/analytics',   label: 'Analytics',       icon: BarChart3,       key: 'analytics' },
-  { href: '/settings',    label: 'Settings',        icon: Settings,        key: 'settings' },
+  { href: '/dashboard', label: 'Dashboard', icon: LayoutDashboard, key: 'dashboard' },
+  { href: '/fleet', label: 'Fleet', icon: Truck, key: 'fleet' },
+  { href: '/drivers', label: 'Drivers', icon: Users, key: 'drivers' },
+  { href: '/trips', label: 'Trips', icon: MapPin, key: 'trips' },
+  { href: '/maintenance', label: 'Maintenance', icon: Wrench, key: 'maintenance' },
+  { href: '/fuel', label: 'Fuel & Expenses', icon: Fuel, key: 'fuel' },
+  { href: '/analytics', label: 'Analytics', icon: BarChart3, key: 'analytics' },
+  { href: '/settings', label: 'Settings', icon: Settings, key: 'settings' },
 ]
 
 const roleNav: Record<string, string[]> = {
-  FLEET_MANAGER:     ['dashboard', 'fleet', 'maintenance', 'analytics', 'settings'],
-  DISPATCHER:        ['dashboard', 'fleet', 'trips'],
-  SAFETY_OFFICER:    ['dashboard', 'drivers', 'trips'],
+  FLEET_MANAGER: ['dashboard', 'fleet', 'maintenance', 'analytics', 'settings'],
+  DISPATCHER: ['dashboard', 'fleet', 'trips'],
+  SAFETY_OFFICER: ['dashboard', 'drivers', 'trips'],
   FINANCIAL_ANALYST: ['dashboard', 'fleet', 'fuel', 'analytics'],
 }
 
 const roleBadgeColor: Record<string, string> = {
-  FLEET_MANAGER:     'bg-blue-500/20 text-blue-400',
-  DISPATCHER:        'bg-orange-500/20 text-orange-400',
-  SAFETY_OFFICER:    'bg-green-500/20 text-green-400',
+  FLEET_MANAGER: 'bg-blue-500/20 text-blue-400',
+  DISPATCHER: 'bg-orange-500/20 text-orange-400',
+  SAFETY_OFFICER: 'bg-green-500/20 text-green-400',
   FINANCIAL_ANALYST: 'bg-purple-500/20 text-purple-400',
 }
 
 const roleLabel: Record<string, string> = {
-  FLEET_MANAGER:     'Fleet Manager',
-  DISPATCHER:        'Dispatcher',
-  SAFETY_OFFICER:    'Safety Officer',
+  FLEET_MANAGER: 'Fleet Manager',
+  DISPATCHER: 'Dispatcher',
+  SAFETY_OFFICER: 'Safety Officer',
   FINANCIAL_ANALYST: 'Financial Analyst',
 }
 

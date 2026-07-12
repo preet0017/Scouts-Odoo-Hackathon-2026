@@ -10,9 +10,9 @@ interface HeaderProps {
 }
 
 const roleLabel: Record<string, string> = {
-  FLEET_MANAGER:     'Fleet Manager',
-  DISPATCHER:        'Dispatcher',
-  SAFETY_OFFICER:    'Safety Officer',
+  FLEET_MANAGER: 'Fleet Manager',
+  DISPATCHER: 'Dispatcher',
+  SAFETY_OFFICER: 'Safety Officer',
   FINANCIAL_ANALYST: 'Financial Analyst',
 }
 

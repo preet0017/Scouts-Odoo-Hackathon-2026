@@ -57,7 +57,7 @@ export async function dispatchTrip(tripId: string) {
     const excess = trip.cargoWeight - trip.vehicle.maxLoadCapacity
     throw new Error(
       `Capacity exceeded by ${excess} kg — dispatch blocked. ` +
-        `Vehicle capacity: ${trip.vehicle.maxLoadCapacity} kg, Cargo: ${trip.cargoWeight} kg`
+      `Vehicle capacity: ${trip.vehicle.maxLoadCapacity} kg, Cargo: ${trip.cargoWeight} kg`
     )
   }
 
@@ -143,15 +143,15 @@ export async function cancelTrip(tripId: string) {
     }),
     ...(wasDispatched
       ? [
-          prisma.vehicle.update({
-            where: { id: trip.vehicleId },
-            data: { status: VehicleStatus.AVAILABLE },
-          }),
-          prisma.driver.update({
-            where: { id: trip.driverId },
-            data: { status: DriverStatus.AVAILABLE },
-          }),
-        ]
+        prisma.vehicle.update({
+          where: { id: trip.vehicleId },
+          data: { status: VehicleStatus.AVAILABLE },
+        }),
+        prisma.driver.update({
+          where: { id: trip.driverId },
+          data: { status: DriverStatus.AVAILABLE },
+        }),
+      ]
       : []),
   ])
 
@@ -222,4 +222,16 @@ export async function closeMaintenance(maintenanceId: string) {
   ])
 
   return { success: true }
+}
+
+/** Add attachment to a maintenance record */
+export async function addMaintenanceAttachment(maintenanceId: string, attachment: string) {
+  const log = await prisma.maintenanceLog.findUniqueOrThrow({
+    where: { id: maintenanceId },
+  })
+  const updated = log.attachments ? `${log.attachments}, ${attachment}` : attachment
+  return prisma.maintenanceLog.update({
+    where: { id: maintenanceId },
+    data: { attachments: updated },
+  })
 }

@@ -176,7 +176,8 @@ async function main() {
       status: TripStatus.COMPLETED,
       finalOdometer: 74035, fuelConsumed: 5.6,
       revenue: 8000,
-      eta: new Date('2026-07-01T10:30:00'),
+      eta: new Date('2026-02-10T10:30:00'),
+      createdAt: new Date('2026-02-10'),
     },
   })
 
@@ -188,7 +189,8 @@ async function main() {
       status: TripStatus.COMPLETED,
       finalOdometer: 74057, fuelConsumed: 3.8,
       revenue: 6500,
-      eta: new Date('2026-07-03T14:00:00'),
+      eta: new Date('2026-03-05T14:00:00'),
+      createdAt: new Date('2026-03-05'),
     },
   })
 
@@ -200,7 +202,8 @@ async function main() {
       status: TripStatus.COMPLETED,
       finalOdometer: 182028, fuelConsumed: 9.4,
       revenue: 22000,
-      eta: new Date('2026-07-04T09:00:00'),
+      eta: new Date('2026-03-18T09:00:00'),
+      createdAt: new Date('2026-03-18'),
     },
   })
 
@@ -212,7 +215,8 @@ async function main() {
       status: TripStatus.COMPLETED,
       finalOdometer: 51018, fuelConsumed: 2.9,
       revenue: 4000,
-      eta: new Date('2026-07-05T11:00:00'),
+      eta: new Date('2026-04-12T11:00:00'),
+      createdAt: new Date('2026-04-12'),
     },
   })
 
@@ -224,7 +228,8 @@ async function main() {
       status: TripStatus.COMPLETED,
       finalOdometer: 98542, fuelConsumed: 14.2,
       revenue: 35000,
-      eta: new Date('2026-07-06T08:30:00'),
+      eta: new Date('2026-05-08T08:30:00'),
+      createdAt: new Date('2026-05-08'),
     },
   })
 
@@ -236,7 +241,8 @@ async function main() {
       status: TripStatus.COMPLETED,
       finalOdometer: 74112, fuelConsumed: 7.1,
       revenue: 9500,
-      eta: new Date('2026-07-07T13:00:00'),
+      eta: new Date('2026-06-14T13:00:00'),
+      createdAt: new Date('2026-06-14'),
     },
   })
 
@@ -248,7 +254,8 @@ async function main() {
       status: TripStatus.COMPLETED,
       finalOdometer: 32168, fuelConsumed: 10.5,
       revenue: 13000,
-      eta: new Date('2026-07-08T07:45:00'),
+      eta: new Date('2026-07-03T07:45:00'),
+      createdAt: new Date('2026-07-03'),
     },
   })
 
@@ -261,6 +268,7 @@ async function main() {
       finalOdometer: 310063, fuelConsumed: 21.0,
       revenue: 41000,
       eta: new Date('2026-07-09T06:00:00'),
+      createdAt: new Date('2026-07-09'),
     },
   })
 

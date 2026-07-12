@@ -68,7 +68,7 @@ async function getAnalyticsData() {
   // Monthly Revenue — group completed trips by month
   const monthlyMap: Record<string, number> = {}
   completedTrips.forEach(t => {
-    const key = format(new Date(t.createdAt), 'MMM yy')
+    const key = format(new Date(t.createdAt), 'MMM yyyy')
     monthlyMap[key] = (monthlyMap[key] ?? 0) + (t.revenue ?? 0)
   })
   const monthlyRevenue = Object.entries(monthlyMap)

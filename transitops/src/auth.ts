@@ -3,13 +3,14 @@ import Credentials from 'next-auth/providers/credentials'
 import { prisma } from '@/lib/prisma'
 import bcrypt from 'bcryptjs'
 import { z } from 'zod'
+import { cache } from 'react'
 
 const loginSchema = z.object({
   email: z.string().email(),
   password: z.string().min(6),
 })
 
-export const { handlers, auth, signIn, signOut } = NextAuth({
+const { handlers, auth: _auth, signIn, signOut } = NextAuth({
   session: { strategy: 'jwt' },
   pages: { signIn: '/login' },
   providers: [
@@ -66,3 +67,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
     },
   },
 })
+
+// Cached per-request — avoids re-decoding JWT on every server component call
+export const auth = cache(_auth)
+export { handlers, signIn, signOut }

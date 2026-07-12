@@ -5,7 +5,7 @@ import { usePathname } from 'next/navigation'
 import { useSession } from 'next-auth/react'
 import {
   LayoutDashboard, Truck, Users, MapPin,
-  Wrench, Fuel, BarChart3, Settings, LogOut
+  Wrench, Fuel, BarChart3, Settings, LogOut, Shield
 } from 'lucide-react'
 import { signOut } from 'next-auth/react'
 import { cn } from '@/lib/utils'
@@ -19,16 +19,19 @@ const allNavItems = [
   { href: '/fuel',        label: 'Fuel & Expenses', icon: Fuel,            key: 'fuel' },
   { href: '/analytics',   label: 'Analytics',       icon: BarChart3,       key: 'analytics' },
   { href: '/settings',    label: 'Settings',        icon: Settings,        key: 'settings' },
+  { href: '/admin',       label: 'Admin Panel',     icon: Shield,          key: 'admin' },
 ]
 
 const roleNav: Record<string, string[]> = {
-  FLEET_MANAGER:     ['dashboard', 'fleet', 'maintenance', 'analytics', 'settings'],
-  DISPATCHER:        ['dashboard', 'fleet', 'trips'],
-  SAFETY_OFFICER:    ['dashboard', 'drivers', 'trips'],
+  ADMIN:             ['dashboard', 'fleet', 'drivers', 'trips', 'maintenance', 'fuel', 'analytics', 'settings', 'admin'],
+  FLEET_MANAGER:     ['dashboard', 'fleet', 'drivers'],
+  DISPATCHER:        ['dashboard', 'trips', 'maintenance'],
+  SAFETY_OFFICER:    ['dashboard', 'fuel', 'analytics'],
   FINANCIAL_ANALYST: ['dashboard', 'fleet', 'fuel', 'analytics'],
 }
 
 const roleBadgeColor: Record<string, string> = {
+  ADMIN:             'bg-red-500/20 text-red-400',
   FLEET_MANAGER:     'bg-blue-500/20 text-blue-400',
   DISPATCHER:        'bg-orange-500/20 text-orange-400',
   SAFETY_OFFICER:    'bg-green-500/20 text-green-400',
@@ -36,6 +39,7 @@ const roleBadgeColor: Record<string, string> = {
 }
 
 const roleLabel: Record<string, string> = {
+  ADMIN:             'Admin',
   FLEET_MANAGER:     'Fleet Manager',
   DISPATCHER:        'Dispatcher',
   SAFETY_OFFICER:    'Safety Officer',

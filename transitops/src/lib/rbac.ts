@@ -11,7 +11,7 @@ const permissions: Record<Role, Partial<Record<Resource, Action>>> = {
   },
   FLEET_MANAGER:    { fleet: 'edit', maintenance: 'edit', analytics: 'view', settings: 'edit' },
   DISPATCHER:       { fleet: 'view', trips: 'edit' },
-  SAFETY_OFFICER:   { drivers: 'edit', trips: 'view' },
+  SAFETY_OFFICER:   { maintenance: 'view', trips: 'view' },
   FINANCIAL_ANALYST:{ fleet: 'view', fuel: 'edit', analytics: 'view' },
 }
 
@@ -27,6 +27,6 @@ export const navByRole: Record<Role, string[]> = {
   ADMIN:            ['dashboard', 'fleet', 'drivers', 'trips', 'maintenance', 'fuel', 'analytics', 'settings', 'admin'],
   FLEET_MANAGER:    ['dashboard', 'fleet', 'maintenance', 'analytics', 'settings'],
   DISPATCHER:       ['dashboard', 'fleet', 'trips'],
-  SAFETY_OFFICER:   ['dashboard', 'drivers', 'trips'],
+  SAFETY_OFFICER:   ['dashboard', 'maintenance', 'trips'],
   FINANCIAL_ANALYST:['dashboard', 'fleet', 'fuel', 'analytics'],
 }

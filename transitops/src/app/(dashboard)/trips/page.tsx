@@ -49,17 +49,12 @@ export default async function TripsPage() {
     )
   }
 
-  // Fetch all trips, with vehicle and driver associations
-  const trips = await prisma.trip.findMany({
-    orderBy: { createdAt: 'desc' },
-    include: {
-      vehicle: true,
-      driver: true,
-    },
-  })
-
-  // Fetch eligible assets for new assignments (or edits)
-  const [eligibleVehicles, eligibleDrivers] = await Promise.all([
+  // Fetch trips and eligible assets in parallel
+  const [trips, eligibleVehicles, eligibleDrivers] = await Promise.all([
+    prisma.trip.findMany({
+      orderBy: { createdAt: 'desc' },
+      include: { vehicle: true, driver: true },
+    }),
     getEligibleVehicles(),
     getEligibleDrivers(),
   ])

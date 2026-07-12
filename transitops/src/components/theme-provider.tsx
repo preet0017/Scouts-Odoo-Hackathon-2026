@@ -15,14 +15,13 @@ const ThemeContext = createContext<ThemeContextType>({
 })
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setTheme] = useState<Theme>('dark')
+  const [theme, setTheme] = useState<Theme>('light')
 
   useEffect(() => {
     const saved = localStorage.getItem('transitops-theme') as Theme
-    if (saved) {
-      setTheme(saved)
-      document.documentElement.classList.toggle('dark', saved === 'dark')
-    }
+    const resolved = saved ?? 'light'
+    setTheme(resolved)
+    document.documentElement.classList.toggle('dark', resolved === 'dark')
   }, [])
 
   function toggleTheme() {

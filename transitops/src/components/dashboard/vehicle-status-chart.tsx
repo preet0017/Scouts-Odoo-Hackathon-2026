@@ -2,7 +2,7 @@
 
 import {
   BarChart, Bar, XAxis, YAxis,
-  Tooltip, ResponsiveContainer, Cell
+  Tooltip, ResponsiveContainer, Cell, LabelList
 } from 'recharts'
 
 interface ChartData {
@@ -37,6 +37,7 @@ export function VehicleStatusChart({ data }: { data: ChartData[] }) {
           {data.map((entry, index) => (
             <Cell key={index} fill={entry.fill} />
           ))}
+          <LabelList dataKey="value" position="right" style={{ fill: '#9ca3af', fontSize: 12, fontWeight: 600 }} />
         </Bar>
       </BarChart>
     </ResponsiveContainer>

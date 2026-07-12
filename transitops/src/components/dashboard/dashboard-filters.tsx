@@ -5,16 +5,19 @@ import {
   Select, SelectContent, SelectItem,
   SelectTrigger, SelectValue,
 } from '@/components/ui/select'
-import { SlidersHorizontal } from 'lucide-react'
-
-interface Props {
-  onFilter: (type: string, status: string, region: string) => void
-}
+import { Button } from '@/components/ui/button'
+import { SlidersHorizontal, CheckCircle2 } from 'lucide-react'
 
 export function DashboardFilters() {
   const [vehicleType, setVehicleType] = useState('ALL')
   const [status,      setStatus]      = useState('ALL')
   const [region,      setRegion]      = useState('ALL')
+  const [applied,     setApplied]     = useState(false)
+
+  const hasFilters = vehicleType !== 'ALL' || status !== 'ALL' || region !== 'ALL'
+
+  const handleApply = () => setApplied(true)
+  const handleClear = () => { setVehicleType('ALL'); setStatus('ALL'); setRegion('ALL'); setApplied(false) }
 
   return (
     <div className="flex flex-wrap items-center gap-3 p-4 bg-card border border-border rounded-xl">
@@ -23,7 +26,7 @@ export function DashboardFilters() {
         <span className="font-medium">Filters</span>
       </div>
 
-      <Select value={vehicleType} onValueChange={(v) => setVehicleType(v ?? 'ALL')}>
+      <Select value={vehicleType} onValueChange={(v) => { setVehicleType(v ?? 'ALL'); setApplied(false) }}>
         <SelectTrigger className="w-40 h-8 text-sm">
           <SelectValue placeholder="Vehicle Type" />
         </SelectTrigger>
@@ -35,7 +38,7 @@ export function DashboardFilters() {
         </SelectContent>
       </Select>
 
-      <Select value={status} onValueChange={(v) => setStatus(v ?? 'ALL')}>
+      <Select value={status} onValueChange={(v) => { setStatus(v ?? 'ALL'); setApplied(false) }}>
         <SelectTrigger className="w-40 h-8 text-sm">
           <SelectValue placeholder="Status" />
         </SelectTrigger>
@@ -48,7 +51,7 @@ export function DashboardFilters() {
         </SelectContent>
       </Select>
 
-      <Select value={region} onValueChange={(v) => setRegion(v ?? 'ALL')}>
+      <Select value={region} onValueChange={(v) => { setRegion(v ?? 'ALL'); setApplied(false) }}>
         <SelectTrigger className="w-40 h-8 text-sm">
           <SelectValue placeholder="Region" />
         </SelectTrigger>
@@ -61,12 +64,22 @@ export function DashboardFilters() {
         </SelectContent>
       </Select>
 
-      {(vehicleType !== 'ALL' || status !== 'ALL' || region !== 'ALL') && (
+      <Button
+        size="sm"
+        onClick={handleApply}
+        disabled={!hasFilters || applied}
+        className="h-8 gap-1.5 text-xs"
+      >
+        {applied ? <CheckCircle2 className="h-3.5 w-3.5" /> : null}
+        {applied ? 'Applied' : 'Apply'}
+      </Button>
+
+      {hasFilters && (
         <button
-          onClick={() => { setVehicleType('ALL'); setStatus('ALL'); setRegion('ALL') }}
-          className="text-xs text-muted-foreground hover:text-foreground underline underline-offset-2 ml-1"
+          onClick={handleClear}
+          className="text-xs text-muted-foreground hover:text-foreground underline underline-offset-2"
         >
-          Clear filters
+          Clear
         </button>
       )}
     </div>

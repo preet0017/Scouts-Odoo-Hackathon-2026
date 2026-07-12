@@ -370,7 +370,7 @@ export function TripsClient({
             <select
               value={statusFilter}
               onChange={(e) => setStatusFilter(e.target.value)}
-              className="bg-transparent border-0 outline-hidden font-medium text-foreground text-xs"
+              className="bg-background border-0 outline-hidden font-medium text-foreground text-xs"
             >
               <option value="ALL">All Trip Statuses</option>
               <option value="DRAFT">Draft</option>
@@ -402,7 +402,7 @@ export function TripsClient({
                 {/* Trip Route & ID Info */}
                 <div className="space-y-2 flex-1 min-w-0">
                   <div className="flex items-center gap-3">
-                    <span className="font-mono text-xs text-muted-foreground font-bold px-2 py-0.5 bg-neutral-900 border border-neutral-800 rounded">
+                    <span className="font-mono text-xs text-foreground font-bold px-2 py-0.5 bg-muted border border-border rounded">
                       TRIP-{trip.id.slice(0, 8).toUpperCase()}
                     </span>
                     <StatusBadge status={trip.status} />

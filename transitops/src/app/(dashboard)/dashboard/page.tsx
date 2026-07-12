@@ -1,4 +1,3 @@
-import { auth } from '@/auth'
 import { prisma } from '@/lib/prisma'
 import { Header } from '@/components/layout/header'
 import { KpiCard } from '@/components/ui/kpi-card'
@@ -69,7 +68,6 @@ async function getDashboardData() {
 }
 
 export default async function DashboardPage() {
-  await auth()
   const { kpis, chartData, recentTrips } = await getDashboardData()
 
   return (

@@ -1,8 +1,7 @@
 'use client'
 
 import { useSession } from 'next-auth/react'
-import { Search, Bell, Sun, Moon } from 'lucide-react'
-import { Input } from '@/components/ui/input'
+import { Bell, Sun, Moon } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { useTheme } from '@/components/theme-provider'
 
@@ -37,15 +36,6 @@ export function Header({ title }: HeaderProps) {
       <h1 className="text-lg font-semibold text-foreground">{title}</h1>
 
       <div className="flex items-center gap-3">
-        <div className="relative">
-          <Search className="absolute left-3 top-1/2 -translate-y-1/2
-                             h-4 w-4 text-muted-foreground" />
-          <Input
-            placeholder="Search..."
-            className="pl-9 w-64 bg-background"
-          />
-        </div>
-
         <Button variant="ghost" size="icon">
           <Bell className="h-4 w-4" />
         </Button>

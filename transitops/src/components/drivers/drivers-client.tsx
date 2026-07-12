@@ -371,7 +371,7 @@ export function DriversClient({ initialDrivers, userRole, canEdit }: DriversClie
                     </td>
                     <td className="p-4 font-mono text-xs">{driver.licenseNo}</td>
                     <td className="p-4">
-                      <span className="px-2 py-0.5 bg-neutral-900 border border-neutral-800 text-foreground/80 rounded font-semibold text-xs">
+                      <span className="px-2 py-0.5 bg-muted border border-border text-foreground rounded font-semibold text-xs">
                         {driver.licenseCategory}
                       </span>
                     </td>

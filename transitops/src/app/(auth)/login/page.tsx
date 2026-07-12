@@ -56,7 +56,7 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="min-h-screen bg-green-200 flex">
+    <div className="min-h-screen bg-background flex">
       {/* Left panel */}
       <div className="hidden lg:flex lg:w-1/2 bg-card flex-col justify-between p-12 border-r border-border">
         <div className="flex items-center gap-3">
@@ -75,9 +75,9 @@ export default function LoginPage() {
           </h2>
           <div className="space-y-3">
             {[
-              { role: 'Fleet Manager',     desc: 'Fleet, Maintenance, Lifecycle' },
-              { role: 'Dispatcher',        desc: 'Dashboard, Trips, Dispatch' },
-              { role: 'Safety Officer',    desc: 'Drivers, Compliance, Scores' },
+              { role: 'Fleet Manager', desc: 'Fleet, Maintenance, Lifecycle' },
+              { role: 'Dispatcher', desc: 'Dashboard, Trips, Dispatch' },
+              { role: 'Safety Officer', desc: 'Drivers, Compliance, Scores' },
               { role: 'Financial Analyst', desc: 'Fuel, Expenses, Analytics' },
             ].map(({ role, desc }) => (
               <div key={role} className="flex items-center gap-3">
